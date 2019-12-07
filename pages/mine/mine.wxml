@@ -1,0 +1,33 @@
+<scroll-view scroll-y class="scrollPage">
+<view class="bg-gradual-green padding radius text-center shadow-blur" style="height:30%">
+  <view class="userInfo">
+    <button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
+    <block wx:else>
+      <view class='text-center'>
+        <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+        <view class="padding">{{userInfo.nickName}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="/pages/favor/favor">
+        <text class="cuIcon-likefill text-red"></text>
+        <text class="text-grey">我的收藏</text>
+      </navigator>
+    </view>
+     <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="/pages/advice/advice">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </navigator>
+    </view>
+     <view class="cu-item arrow">
+      <navigator class="content" hover-class="none" url="/pages/aboutus/aboutus">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">关于我们</text>
+      </navigator>
+    </view>
+</view>
+</scroll-view>

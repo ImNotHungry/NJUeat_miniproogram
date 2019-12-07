@@ -1,0 +1,29 @@
+
+<image src='/images/discussBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx;background-color:#ffffff'></image>
+<navigator hover-class='none' url="/pages/form/form">
+<view class="padding flex flex-direction">
+  <button class="cu-btn bg-purple light lg">发表新建议</button>
+</view>
+</navigator>
+
+<scroll-view scroll-y class="scrollPage">
+<view class="cu-card dynamic" wx:for="{{elements}}" wx:key>
+  <view class="cu-item shadow">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{item.comment_icon}});"></view>
+        <view class="content flex-sub">
+          <view>{{item.comment_name}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{item.comment_date}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="text-content">
+      {{item.comment_text}}
+    </view>
+  </view>
+</view>
+
+</scroll-view>

@@ -1,0 +1,46 @@
+<view class='cu-custom'>
+  <view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>食堂大全</view>
+  </view>
+</view>
+<swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperImg}}" wx:key>
+    <image src="{{item}}" mode='aspectFill'></image>
+  </swiper-item>
+</swiper>
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 375rpx)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      {{item.name}}
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view class="padding-top padding-lr" wx:for="{{list}}" wx:key id="main-{{idx}}" wx:for-index="idx">
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-green'></text> {{item.name}} </view>
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item" wx:for="{{elements}}" wx:key wx:if="{{item.CanteenId==idx}}">
+          <view class=" cu-avatar round lg " style="background-image:url({{item.photo}}); "></view>
+          <view class="content ">
+            <view class="text-grey ">{{item.name}}</view>
+            <view class="text-gray text-sm flex dishintro ">
+              <text class="text-cut ">
+										{{item.description}}
+              </text>
+            </view>
+          </view>
+          <view class="action rightside" style="text-align: right;width: 116rpx;">
+            <view class="cu-tag round sm " style="color:green; height: 36rpx;font-size: 24rpx;">{{item.window}}</view>
+            <view class="text-red text-sm ">￥{{item.price}}</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>

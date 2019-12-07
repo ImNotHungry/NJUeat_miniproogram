@@ -1,0 +1,24 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">校外美食</view>
+</cu-custom>
+
+<image src='/images/outside_bg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
+
+<view class="cu-card case" wx:for="{{elements}}" wx:key>
+  <view class="cu-item shadow">
+    <view class="image">
+      <image src="{{item.logo}}" mode="widthFix"></image>
+      <view class="cu-tag bg-red">No.{{index+1}}</view>
+      <view class="cu-bar bg-shadeBottom">
+        <text class="text-content">地址：{{item.address}}</text>
+        <text class="text-content">人均：￥{{item.money}}</text>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="solid-bottom text-df padding">{{item.description}}</view>
+      </view>
+    </view>
+  </view>
+</view>

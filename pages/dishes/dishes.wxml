@@ -1,0 +1,26 @@
+<!--pages/dishes/dishes.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">每日一菜</view>
+</cu-custom>
+<view class='card'>
+  <image class='card-img'
+   src='{{dishesDetail.photo}}'
+   mode='widthFix'>
+  </image>
+  <view class='card-text'>
+    <text>{{dishesDetail.description}}\n\n</text>
+      <view class='source'>
+        <text>——{{dishesDetail.name}}</text>
+      </view>
+  </view>
+</view>
+
+<view class='action'>
+  <view style="color: #da9b96;">
+    <text>￥{{dishesDetail.price}}</text>
+  </view>
+  <view>
+     <text>{{Canteen[dishesDetail.CanteenId].name}}  —  {{dishesDetail.window}}</text>
+  </view>
+</view>

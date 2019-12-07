@@ -1,0 +1,17 @@
+<!--pages/canteen.wxml-->
+<cu-custom bgColor="bg-cyan" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">食堂大全</view>
+</cu-custom>
+
+<view class="grid col-2 padding-sm">
+  <view class="padding-sm"  wx:for="{{Canteen}}" wx:key>
+    <view class="padding radius text-center light " bindtap='tocanteenDetails' id='{{index}}' style='background-color:{{item.colord}};color:{{item.colorl}}'>
+      <view class="text-lg canteen">{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="padding flex flex-direction" bindtap="randomtocanteenDetails">
+  <button class="cu-btn bg-cyan lg">随机选择</button>
+</view>

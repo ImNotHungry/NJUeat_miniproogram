@@ -1,0 +1,24 @@
+<mine wx:if="{{PageCur=='mine'}}"></mine>
+<discovery wx:if="{{PageCur=='discovery'}}"></discovery>
+<discuss wx:if="{{PageCur=='discuss'}}"></discuss>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="discovery">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/discovery{{PageCur=='discovery'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='discovery'?'text-green':'text-gray'}}">发现</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="discuss">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/discuss{{PageCur=='discuss'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='discuss'?'text-green':'text-gray'}}">交流</view>
+  </view>
+
+  <view class="action" bindtap="NavChange" data-cur="mine">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/mine{{PageCur=='mine'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='mine'?'text-green':'text-gray'}}">我的</view>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/discovery/discovery",
+    "pages/discuss/discuss",
+    "pages/form/form",
+    "pages/outside/outside",
+    "pages/recommend/recommend",
+    "pages/favor/favor",
+    "pages/advice/advice",
+    "pages/canteen/canteen",
+    "pages/canteenDetails/canteenDetails",
+    "pages/everyday/everyday",
+    "pages/dishes/dishes",
+    "pages/aboutus/aboutus"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "ColorUI",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,9 @@
+/* pages/canteen.wxss */
+page {
+  background-color: #ffffff;
+}
+
+.canteen{
+  height: 250rpx;
+  line-height: 250rpx;
+}

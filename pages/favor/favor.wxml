@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我的收藏</view>
+</cu-custom>
+
+<view class="cu-card article" wx:for="{{elements}}" wx:key>
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="flex">
+        <view class="flex-sub">
+          {{item.name}}
+        </view>
+        <view class="flex-sub">
+          <view class="cu-tag bg-red light round">{{item.location}}</view>
+          <view class="cu-tag bg-green light round">￥{{item.price}}</view> 
+        </view>
+      </view>
+    </view>
+
+    <view class="content">
+      <image src="{{item.photo}}" mode="aspectFill"></image>
+      <view class="desc">
+        <view>{{item.description}}</view>
+      </view>
+       <text class="cuIcon-likefill text-red " style="margin-left:20rpx"></text> 
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mine":"/pages/mine/mine",
+    "discuss":"/pages/discuss/discuss",
+    "discovery":"/pages/discovery/discovery"
+  }
+}
