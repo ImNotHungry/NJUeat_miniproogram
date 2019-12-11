@@ -1,3 +1,5 @@
+import http from '../../utils/http'
+
 const app = getApp();
 Page({
   data: {
@@ -53,4 +55,14 @@ Page({
       textareaAValue: e.detail.value
     })
   },
+  addComment() {
+    http.post('/appraise/addComment', {
+      userId: this.globalData.userId,
+      comment: this.data.textareaAValue
+    }).then((response) => {
+      wx.navigateTo({
+        url: '../dsiscuss/discuss'
+      })
+    })
+  }
 })

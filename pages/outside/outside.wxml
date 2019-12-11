@@ -8,11 +8,11 @@
 <view class="cu-card case" wx:for="{{elements}}" wx:key>
   <view class="cu-item shadow">
     <view class="image">
-      <image src="{{item.logo}}" mode="widthFix"></image>
+      <image src="{{item.pictureUrl}}" mode="widthFix"></image>
       <view class="cu-tag bg-red">No.{{index+1}}</view>
       <view class="cu-bar bg-shadeBottom">
-        <text class="text-content">地址：{{item.address}}</text>
-        <text class="text-content">人均：￥{{item.money}}</text>
+        <text class="text-content">地址：{{item.restaurantAddress}}</text>
+        <text class="text-content">人均：￥{{item.consumption}}</text>
       </view>
     </view>
     <view class="cu-list menu-avatar">

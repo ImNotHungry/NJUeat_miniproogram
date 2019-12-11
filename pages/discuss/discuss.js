@@ -1,20 +1,13 @@
+import http from '../../utils/http'
+
 Component({
   created: function (options) {
     // 获取评论内容
-    // wx.request({
-    //   url: '******', 
-    //   header: { 
-    //     'Content-Type': 'application/json'
-    //   },
-    //   data: {//要请求的参数
-    //     x: '',
-    //     y: ''
-    //   },
-    //   success: function (res) {
-    //     elements = []
-    //     ..........
-    //   }
-    // })
+    http.post('appraise/viewComment').then((response) => {
+      this.setData({
+        elements: response.object
+      });
+    })
   },
   options: {
     addGlobalClass: true,

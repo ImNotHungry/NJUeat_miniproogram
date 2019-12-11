@@ -5,7 +5,7 @@ Component({
   data: {
     elements: [{
       title: '食堂大全',
-      name: 'canteen',
+      name: 'canteenDetails',
       color: 'cyan',
       icon: 'apps'
     },

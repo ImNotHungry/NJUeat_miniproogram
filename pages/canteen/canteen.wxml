@@ -5,8 +5,8 @@
 </cu-custom>
 
 <view class="grid col-2 padding-sm">
-  <view class="padding-sm"  wx:for="{{Canteen}}" wx:key>
-    <view class="padding radius text-center light " bindtap='tocanteenDetails' id='{{index}}' style='background-color:{{item.colord}};color:{{item.colorl}}'>
+  <view class="padding-sm"  wx:for="{{Canteen}}" wx:key="id">
+    <view class="padding radius text-center light " bindtap='tocanteenDetails' id='{{id}}' style='background-color:{{item.colord}};color:{{item.colorl}};background-image:url({{item.pic}});'>
       <view class="text-lg canteen">{{item.name}}</view>
     </view>
   </view>

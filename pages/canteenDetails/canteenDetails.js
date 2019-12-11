@@ -1,22 +1,7 @@
+import http from '../../utils/http'
+
 const app = getApp()
 Page({
-  onLoad: function (options) {
-    // 获取所有食堂，所有菜品
-    // wx.request({
-    //   url: '******', 
-    //   header: { 
-    //     'Content-Type': 'application/json'
-    //   },
-    //   data: {//要请求的参数
-    //     x: '',
-    //     y: ''
-    //   },
-    //   success: function (res) {
-    //     elements = []
-    //     ..........
-    //   }
-    // })
-  },
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
@@ -104,22 +89,20 @@ Page({
       title: '加载中...',
       mask: true
     });
-    let list = [{}];
-    for (let i = 0; i < 4; i++) {
-      list[i] = {};
-      list[i].id = i;
-    }
-    list[0].name = '一食堂';
-    list[1].name = '二食堂';
-    list[2].name = '三食堂';
-    list[3].name = '清真食堂';
-    var cId = options.cId;
-    this.setData({
-      list: list,
-      listCur: list[0],
-      MainCur: cId,
-      TabCur: cId,
-    })
+    // let cId = options.cId;
+    // 获取食堂列表
+    http.post('/restaurant/allCanteen').then((response) => {
+      let list = [];
+      for (let i = 0; i < response.object.length; i++) {
+        list[i] = { id: i, name: response.object[i].restaurantName }
+      }
+      this.setData({
+        list: list,
+        listCur: list[0]
+      });
+    });
+
+    //todo 获取食堂的菜品 
   },
   onReady() {
     wx.hideLoading()

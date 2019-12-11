@@ -1,3 +1,5 @@
+import http from '../../utils/http'
+
 // pages/canteen.js
 const app = getApp();
 Page({
@@ -36,6 +38,14 @@ Page({
     }],
   },
 
+  onLoad: function () {
+    http.post('/restaurant/allCanteen').then((response) => {
+      this.setData({
+        Canteen: response.object
+      });
+    });
+  },
+
   /**
    * 组件的方法列表
    */
@@ -46,7 +56,7 @@ Page({
     })
   },
   randomtocanteenDetails: function () {
-    let id = Math.floor(Math.random() * 3);
+    let id = Math.floor(Math.random(this.data.Canteen.length));
     wx.navigateTo({
       url: '../canteenDetails/canteenDetails?cId=' + id
     })

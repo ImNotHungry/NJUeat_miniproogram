@@ -3,10 +3,10 @@
   <view slot="content">发表新建议</view>
 </cu-custom>
 
-<view class="cu-form-group margin-top">
+<!-- <view class="cu-form-group margin-top">
 		<view class="title">姓名</view>
 		<input placeholder="请输入您的姓名"></input>
-</view>
+</view> -->
 
 <view class="cu-form-group margin-top">
   <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入您的意见"></textarea>
@@ -33,5 +33,5 @@
   </view>
 </view> -->
 <view class="padding flex flex-direction">
-  <button class="cu-btn bg-mauve lg">发表</button>
+  <button class="cu-btn bg-mauve lg" bindtap="addComment">发表</button>
 </view>

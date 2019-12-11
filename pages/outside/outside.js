@@ -1,21 +1,15 @@
+import http from '../../utils/http'
+
 // pages/basics/outside/outside.js
 Page({
   onLoad: function (options) {
-    // 获取校外推荐内容，elements中的数据已按排好序
-    // wx.request({
-    //   url: '******', 
-    //   header: { 
-    //     'Content-Type': 'application/json'
-    //   },
-    //   data: {//要请求的参数
-    //     x: '',
-    //     y: ''
-    //   },
-    //   success: function (res) {
-    //     elements = []
-    //     ..........
-    //   }
-    // })
+    // 获取校外推荐内容
+    http.post('/restaurant/outside').then((response) => {
+      console.log(response.object)
+      this.setData({
+        elements: response.object
+      });
+    });
   },
   data: {
     elements: [
