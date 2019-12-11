@@ -5,9 +5,9 @@ const request = (url, options) => {
         wx.request({
             url: `${app.globalData.baseUrl}${url}`,
             method: options.method,
-            data: options.method === 'GET' ? options.data : JSON.stringify(options.data),
+            data: options.data ,
             header: {
-                'Content-Type': 'application/json; charset=UTF-8'
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             },
             success(response) {
                 if (response.statusCode === 200) {

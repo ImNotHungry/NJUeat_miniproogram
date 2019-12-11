@@ -24,8 +24,8 @@
           <text class='cuIcon-title text-green'></text> {{item.name}} </view>
       </view>
       <view class="cu-list menu-avatar">
-        <view class="cu-item" wx:for="{{elements}}" wx:key wx:if="{{item.CanteenId==idx}}">
-          <view class=" cu-avatar round lg " style="background-image:url({{item.photo}}); "></view>
+        <view class="cu-item" wx:for="{{elements}}" wx:key wx:if="{{item.restaurantId==idx}}">
+          <view class=" cu-avatar round lg " style="background-image:url({{item.pictureUrl}}); "></view>
           <view class="content ">
             <view class="text-grey ">{{item.name}}</view>
             <view class="text-gray text-sm flex dishintro ">

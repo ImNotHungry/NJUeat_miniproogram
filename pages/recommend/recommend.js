@@ -1,3 +1,4 @@
+import http from '../../utils/http'
 Page({
   data: {
     elements: [
@@ -18,6 +19,11 @@ Page({
     ]
   },
   onLoad: function (options) {
+    http.post("/food/new").then((response)=>{
+      this.setData({
+        elements:response.object
+      })
+    })
     // 获取新品推荐内容
     // wx.request({
     //   url: '******', 

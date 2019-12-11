@@ -5,13 +5,13 @@
 </cu-custom>
 <view class='card'>
   <image class='card-img'
-   src='{{dishesDetail.photo}}'
+   src='{{dishesDetail.pictureUrl}}'
    mode='widthFix'>
   </image>
   <view class='card-text'>
     <text>{{dishesDetail.description}}\n\n</text>
       <view class='source'>
-        <text>——{{dishesDetail.name}}</text>
+        <text>——{{dishesDetail.foodName}}</text>
       </view>
   </view>
 </view>
@@ -21,6 +21,6 @@
     <text>￥{{dishesDetail.price}}</text>
   </view>
   <view>
-     <text>{{Canteen[dishesDetail.CanteenId].name}}  —  {{dishesDetail.window}}</text>
+     <text>{{dishesDetail.restaurantName}}  —  {{dishesDetail.window}}</text>
   </view>
 </view>

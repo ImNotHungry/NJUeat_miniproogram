@@ -1,23 +1,8 @@
+import http from '../../utils/http'
 // pages/dishes/dishes.js
-Component({
-  onLoad: function (options) {
-    // 获取每日一菜内容
-    // wx.request({
-    //   url: '******', 
-    //   header: { 
-    //     'Content-Type': 'application/json'
-    //   },
-    //   data: {//要请求的参数
-    //     x: '',
-    //     y: ''
-    //   },
-    //   success: function (res) {
-    //     // 修改dishesDetail的内容
-    //     ..........
-    //   }
-    // })
-  },
-
+const app = getApp()
+Page({
+  
   /**
    * 组件的初始数据
    */
@@ -51,6 +36,31 @@ Component({
       window: "淮扬餐厅",
       price: "20",
     }
+  },
+
+  onLoad: function (options) {
+    http.post("/food/random").then((response) => {
+      console.log(response)
+      this.setData({
+        dishesDetail: response.object[0]
+      })
+      console.log(this.data.dishesDetail);
+    })
+    // 获取每日一菜内容
+    // wx.request({
+    //   url: '******', 
+    //   header: { 
+    //     'Content-Type': 'application/json'
+    //   },
+    //   data: {//要请求的参数
+    //     x: '',
+    //     y: ''
+    //   },
+    //   success: function (res) {
+    //     // 修改dishesDetail的内容
+    //     ..........
+    //   }
+    // })
   },
 
   /**

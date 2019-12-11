@@ -9,17 +9,17 @@
     <view class="title">
       <view class="flex">
         <view class="flex-sub">
-          {{item.name}}
+          {{item.foodName}}
         </view>
         <view class="flex-sub">
-          <view class="cu-tag bg-red light round">{{item.location}}</view>
+          <view class="cu-tag bg-red light round">{{item.restaurantName}}(窗口{{item.window}})</view>
           <view class="cu-tag bg-green light round">￥{{item.price}}</view>
         </view>
       </view>
     </view>
 
     <view class="content">
-      <image src="{{item.photo}}" mode="aspectFill"></image>
+      <image src="{{item.pictureUrl}}" mode="aspectFill"></image>
       <view class="desc">
         <view>{{item.description}}</view>
       </view>

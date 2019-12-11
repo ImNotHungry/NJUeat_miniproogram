@@ -98,8 +98,19 @@ Page({
       }
       this.setData({
         list: list,
-        listCur: list[0]
+        listCur: list[0],
+        elements:[]
       });
+
+      for(let j=0;j<list.length;j++){
+        let rid=list[j].id;
+        let data = {restaurantId: rid}
+        http.post("/food/all", data).then((response)=>{
+          this.setData({
+            elements:this.data.elements.concat(response.object)
+          })
+        })
+      }
     });
 
     //todo 获取食堂的菜品 
