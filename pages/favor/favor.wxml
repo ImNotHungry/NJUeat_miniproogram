@@ -22,7 +22,7 @@
       <view class="desc">
         <view>{{item.description}}</view>
       </view>
-       <text class="cuIcon-likefill text-red " style="margin-left:20rpx"></text> 
+       <text class="cuIcon-likefill text-red" style="margin-left:20rpx" bindtap="cancelFavor" data-itemid="{{item.id}}"></text>
     </view>
   </view>
 </view>

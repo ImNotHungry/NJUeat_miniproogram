@@ -27,7 +27,12 @@
         <view class="cu-item" wx:for="{{elements}}" wx:key wx:if="{{item.restaurantId==idx}}">
           <view class=" cu-avatar round lg " style="background-image:url({{item.pictureUrl}}); "></view>
           <view class="content ">
-            <view class="text-grey ">{{item.name}}</view>
+            <view>
+              {{item.name}}
+              <view class="action">
+                <text class="cuIcon-likefill {{item.isFavor?'text-red':'text-gray'}}" style="margin-left:20rpx" bindtap="changeFavor" data-isFavor="{{item.isFavor}}" data-itemID="{{item.id}}"></text>
+              </view>
+            </view>
             <view class="text-gray text-sm flex dishintro ">
               <text class="text-cut ">
 										{{item.description}}

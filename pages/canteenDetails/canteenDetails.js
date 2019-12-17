@@ -2,6 +2,19 @@ import http from '../../utils/http'
 
 const app = getApp()
 Page({
+  changeFavor: function (e) {
+    var isFavor = e.currentTarget.dataset.isfavor;
+    var id = e.currentTarget.dataset.itemid;
+    if (isFavor) {
+      // 取消收藏
+    }
+    else {
+      // 添加收藏
+    }
+    console.log(isFavor);
+    console.log(id);
+    this.onLoad();
+  },
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
@@ -12,68 +25,84 @@ Page({
     list: [],
     load: true,
     elements: [{
+      id: 1,
       name: "大盘鸡",
       photo: "https://ali.xinshipu.cn/20171219/original/1513669121940.jpg@288w_216h_50q_1e_1c.jpg",
       description: "新疆大盘鸡又名为沙湾大盘鸡，是新疆名菜，主要用料为鸡块和土豆块、四川粉皮，配皮带面烹饪而成。",
       CanteenId: '0',
       window: "新疆风味",
       price: "8/500g",
+      isFavor: false
     },
     {
+      id: 2,
       name: "清蒸螃蟹",
       photo: "https://i8.meishichina.com/attachment/recipe/201109/201109131405454.jpg?x-oss-process=style/p800",
       description: "原汁原味，味觉盛宴",
       CanteenId: '0',
       window: "淮扬餐厅",
       price: "20/只",
+      isFavor: false
     },
     {
+      id: 3,
       name: "水煮胡萝卜",
       photo: "https://ali.xinshipu.cn/20171219/original/1513669121940.jpg@288w_216h_50q_1e_1c.jpg",
       description: "水煮胡萝卜好吃",
       CanteenId: '1',
       window: "低盐少油",
       price: "3/份",
+      isFavor: true
     },
     {
+      id: 4,
       name: "兰州拉面",
       photo: "https://i8.meishichina.com/attachment/recipe/201109/201109131405454.jpg?x-oss-process=style/p800",
       description: "原汁原味，味觉盛宴",
       CanteenId: '1',
       window: "西北面食",
       price: "10/份",
+      isFavor: false
     },
     {
+      id: 5,
       name: "肠粉",
       photo: "https://ali.xinshipu.cn/20171219/original/1513669121940.jpg@288w_216h_50q_1e_1c.jpg",
       description: "肠粉好吃",
       CanteenId: '2',
       window: "广东风味",
       price: "8/份",
+      isFavor: false
     },
     {
+      id: 6,
       name: "三杯鸡",
       photo: "https://i8.meishichina.com/attachment/recipe/201109/201109131405454.jpg?x-oss-process=style/p800",
       description: "原汁原味，味觉盛宴",
       CanteenId: '2',
       window: "台湾风味",
       price: "10/份",
+      isFavor: false
     },
     {
+      id: 7,
       name: "铁板牛肉饭",
       photo: "https://ali.xinshipu.cn/20171219/original/1513669121940.jpg@288w_216h_50q_1e_1c.jpg",
       description: "铁板牛肉饭好吃",
       CanteenId: '3',
       window: "铁板风味",
       price: "12",
+      isFavor: false
     },
     {
+      id: 8,
       name: "牛肉面",
       photo: "https://i8.meishichina.com/attachment/recipe/201109/201109131405454.jpg?x-oss-process=style/p800",
       description: "原汁原味，味觉盛宴",
       CanteenId: '3',
       window: "拉面窗口",
       price: "10",
+      isFavor: false
     }
     ],
     swiperImg: [
