@@ -1,3 +1,6 @@
+import http from '../../utils/http'
+
+const app = getApp()
 Page({
   data: {
     elements: [
@@ -18,6 +21,25 @@ Page({
     ]
   },
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中...',
+      mask:false
+    });
+    
+    http.post('/user/viewCollection',options = {
+      userId: app.globalData.userId
+    }).then((response) =>{
+      console.log(response)
+      let list = [];
+      for (let i = 0; i < response.object.length; i++) {
+        list[i] = {
+          id: i,
+          name:response.object[i].name,
+          description:response.object[i].description,
+
+        }
+      }
+    })
     // 获取收藏内容
     // wx.request({
     //   url: '******', 
