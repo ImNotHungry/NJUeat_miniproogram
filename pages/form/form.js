@@ -57,11 +57,11 @@ Page({
   },
   addComment() {
     http.post('/appraise/addComment', {
-      userId: this.globalData.userId,
+      userId: app.globalData.userId,
       comment: this.data.textareaAValue
     }).then((response) => {
       wx.navigateTo({
-        url: '../dsiscuss/discuss'
+        url: '../discuss/discuss'
       })
     })
   }

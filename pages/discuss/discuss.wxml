@@ -11,17 +11,17 @@
   <view class="cu-item shadow">
     <view class="cu-list menu-avatar">
       <view class="cu-item">
-        <view class="cu-avatar round lg" style="background-image:url({{item.comment_icon}});"></view>
+        <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
         <view class="content flex-sub">
-          <view>{{item.comment_name}}</view>
+          <view>{{item.username}}</view>
           <view class="text-gray text-sm flex justify-between">
-            {{item.comment_date}}
+            {{item.commentTime}}
           </view>
         </view>
       </view>
     </view>
     <view class="text-content">
-      {{item.comment_text}}
+      {{item.comment}}
     </view>
   </view>
 </view>

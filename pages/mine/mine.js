@@ -27,34 +27,8 @@ Component({
       })
     },
     getUserInfo: function(e) {
-
-
-
-      // wx.request({
-      //   url: 'http://127.0.0.1:8000/user/addUser',
-      //   method: 'post',
-      //   data: tempData,
-      //   header: {
-      //     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      //   },
-      //   success(response) {
-      //     if (response.code === 200) {
-      //       console.log(response.data)
-      //     } else {
-      //       reject(response.data)
-      //     }
-      //   },
-      //   fail(error) {
-      //     reject(error.data)
-      //   }
-      // })
-
-
-      // console.log(e)
       app.globalData.userInfo = e.detail.userInfo
       app.globalData.hasUserInfo = true
-      // console.log(app.globalData.userInfo)
-      // console.log(app.globalData.hasUserInfo)
 
       this.setData({
         userInfo: e.detail.userInfo,

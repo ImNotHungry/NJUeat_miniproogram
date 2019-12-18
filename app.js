@@ -2,7 +2,7 @@
 import http from '/utils/http.js'
 
 App({
-  onLaunch: function() {
+  onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -12,14 +12,13 @@ App({
     // 登录
     wx.login({
       success: res => {
-        console.log(res)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
           url: 'https://api.weixin.qq.com/sns/jscode2session',
           method: 'get',
           data: {
-            appid: 'wx275cb1055fb3bedb',
-            secret: 'db6983b27eea3fa51b657eb82b0c15ae',
+            appid: 'wx446f60adbe0ec659',
+            secret: '5538daa8ab5638348494ff25129d862a',
             js_code: res.code,
             grant_type: 'authorization_code'
           },
@@ -27,14 +26,9 @@ App({
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           },
           success(response) {
+            console.log(response)
             if (response.statusCode === 200) {
-              console.log(response.data)
-
-              // resolve(response.data);
               that.globalData.openId = response.data.openid
-              // console.log(that.globalData)
-
-              // console.log(that.globalData)
             } else {
               reject(response.data);
             }
@@ -54,19 +48,30 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-              // console.log(res.userInfo)
-              // this.globalData.use
+              this.globalData.hasUserInfo = true
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
+              let tempData = {
+                'wxID': this.globalData.openId,
+                'userName': this.globalData.userInfo.nickName,
+                'avatarUrl': this.globalData.userInfo.avatarUrl
+              }
+              http.post('/user/addUser', tempData).then((response) => {
+                let tempData2 = {
+                  'wxId': this.globalData.openId
+                }
+                http.post('/user/getUserInfo', tempData2).then((response) => {
+                  that.globalData.userId = response.object.id
+                })
+              })
+
             }
           })
-          console.log(this.globalData)
         }
-        console.log(this.globalData)
       }
     })
     // 获取系统状态栏信息
@@ -86,83 +91,81 @@ App({
   globalData: {
     userInfo: null,
     hasUserInfo: false,
-    // baseUrl: 'http://172.19.240.140:8000',
-    baseUrl: 'http://127.0.0.1:8000',
     ColorList: [{
-        title: '嫣红',
-        name: 'red',
-        color: '#e54d42'
-      },
-      {
-        title: '桔橙',
-        name: 'orange',
-        color: '#f37b1d'
-      },
-      {
-        title: '明黄',
-        name: 'yellow',
-        color: '#fbbd08'
-      },
-      {
-        title: '橄榄',
-        name: 'olive',
-        color: '#8dc63f'
-      },
-      {
-        title: '森绿',
-        name: 'green',
-        color: '#39b54a'
-      },
-      {
-        title: '天青',
-        name: 'cyan',
-        color: '#1cbbb4'
-      },
-      {
-        title: '海蓝',
-        name: 'blue',
-        color: '#0081ff'
-      },
-      {
-        title: '姹紫',
-        name: 'purple',
-        color: '#6739b6'
-      },
-      {
-        title: '木槿',
-        name: 'mauve',
-        color: '#9c26b0'
-      },
-      {
-        title: '桃粉',
-        name: 'pink',
-        color: '#e03997'
-      },
-      {
-        title: '棕褐',
-        name: 'brown',
-        color: '#a5673f'
-      },
-      {
-        title: '玄灰',
-        name: 'grey',
-        color: '#8799a3'
-      },
-      {
-        title: '草灰',
-        name: 'gray',
-        color: '#aaaaaa'
-      },
-      {
-        title: '墨黑',
-        name: 'black',
-        color: '#333333'
-      },
-      {
-        title: '雅白',
-        name: 'white',
-        color: '#ffffff'
-      }
+      title: '嫣红',
+      name: 'red',
+      color: '#e54d42'
+    },
+    {
+      title: '桔橙',
+      name: 'orange',
+      color: '#f37b1d'
+    },
+    {
+      title: '明黄',
+      name: 'yellow',
+      color: '#fbbd08'
+    },
+    {
+      title: '橄榄',
+      name: 'olive',
+      color: '#8dc63f'
+    },
+    {
+      title: '森绿',
+      name: 'green',
+      color: '#39b54a'
+    },
+    {
+      title: '天青',
+      name: 'cyan',
+      color: '#1cbbb4'
+    },
+    {
+      title: '海蓝',
+      name: 'blue',
+      color: '#0081ff'
+    },
+    {
+      title: '姹紫',
+      name: 'purple',
+      color: '#6739b6'
+    },
+    {
+      title: '木槿',
+      name: 'mauve',
+      color: '#9c26b0'
+    },
+    {
+      title: '桃粉',
+      name: 'pink',
+      color: '#e03997'
+    },
+    {
+      title: '棕褐',
+      name: 'brown',
+      color: '#a5673f'
+    },
+    {
+      title: '玄灰',
+      name: 'grey',
+      color: '#8799a3'
+    },
+    {
+      title: '草灰',
+      name: 'gray',
+      color: '#aaaaaa'
+    },
+    {
+      title: '墨黑',
+      name: 'black',
+      color: '#333333'
+    },
+    {
+      title: '雅白',
+      name: 'white',
+      color: '#ffffff'
+    }
     ]
   }
 })

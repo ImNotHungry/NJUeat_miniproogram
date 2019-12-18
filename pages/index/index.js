@@ -7,14 +7,12 @@ Page({
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
-      console.log("有用户")
-      console.log(app.globalData.userInfo)
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
     }else{
-      console.log("没有用户")
+      
     }
     // } else if (this.data.canIUse) {
     //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
