@@ -5,11 +5,26 @@ Page({
   changeFavor: function (e) {
     var isFavor = e.currentTarget.dataset.isfavor;
     var id = e.currentTarget.dataset.itemid;
+
     if (isFavor) {
       // 取消收藏
+      let data = {
+        userId: app.globalData.userId,
+        foodId: id
+      }
+      http.post('/user/deleteCollection', data).then((response) => {
+        console.log(response)
+      })
     }
     else {
       // 添加收藏
+      let data = {
+        userId: app.globalData.userId,
+        foodId: id
+      }
+      http.post('/user/addCollection', data).then((response) => {
+        console.log(response)
+      })
     }
     console.log(isFavor);
     console.log(id);
