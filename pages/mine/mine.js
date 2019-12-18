@@ -36,20 +36,16 @@ Component({
       })
       let tempData = {
         'wxID': app.globalData.openId,
-        'userName': app.globalData.userInfo.nickName
+        'userName': app.globalData.userInfo.nickName,
+        'avatarUrl': app.globalData.userInfo.avatarUrl
       }
       http.post('/user/addUser', tempData).then((response) => {
-        // console.log('response:', response)
-
         let tempData2 = {
           'wxId': app.globalData.openId
         }
         http.post('/user/getUserInfo', tempData2).then((response) => {
-          // console.log(response)
           app.globalData.userId = response.object.id
-          // console.log(app.globalData)
         })
-
       })
       // console.log(app.globalData)
       getCurrentPages()[getCurrentPages().length - 1].onLoad()

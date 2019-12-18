@@ -12,6 +12,7 @@ App({
     // 登录
     wx.login({
       success: res => {
+        console.log(res.code)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
           url: 'https://api.weixin.qq.com/sns/jscode2session',
@@ -55,20 +56,6 @@ App({
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
-              let tempData = {
-                'wxID': this.globalData.openId,
-                'userName': this.globalData.userInfo.nickName,
-                'avatarUrl': this.globalData.userInfo.avatarUrl
-              }
-              http.post('/user/addUser', tempData).then((response) => {
-                let tempData2 = {
-                  'wxId': this.globalData.openId
-                }
-                http.post('/user/getUserInfo', tempData2).then((response) => {
-                  that.globalData.userId = response.object.id
-                })
-              })
-
             }
           })
         }
