@@ -2,6 +2,20 @@ import http from '../../utils/http'
 
 const app = getApp()
 Page({
+  cancelFavor: function (e) {
+    var id = e.currentTarget.dataset.itemid;
+    // console.log(e.currentTarget);
+    // 取消收藏
+    let data = {
+      userId: app.globalData.userId,
+      foodId: id
+    }
+    http.post('/user/deleteCollection', data).then((response) => {
+      console.log(response)
+      this.onLoad();
+    })
+    
+  },
   data: {
     elements: [
       {
@@ -22,11 +36,7 @@ Page({
       }
     ]
   },
-  onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中...',
-      mask:false
-    });
+  onLoad(options) {
     console.log(app.globalData)
     let data = {
       userId: app.globalData.userId
@@ -48,20 +58,6 @@ Page({
         elements: list
       })
     })
-  },
-  cancelFavor: function (e) {
-    var id = e.currentTarget.dataset.itemid;
-    // console.log(e.currentTarget);
-    // 取消收藏
-    let data = {
-      userId: app.globalData.userId,
-      foodId: id
-    }
-    http.post('/user/deleteCollection',data).then((response)=>{
-      console.log(response)
-    })
-    
-    this.onLoad();
   },
   onReady() {
     wx.hideLoading()
