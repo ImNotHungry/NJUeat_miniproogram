@@ -1,4 +1,5 @@
 import http from '../../utils/http'
+const app = getApp()
 Page({
   data: {
     elements: [
@@ -19,7 +20,10 @@ Page({
     ]
   },
   onLoad: function (options) {
-    http.post("/food/new").then((response)=>{
+    let data = {
+      userId: app.globalData.userId
+    }
+    http.post("/food/new",data).then((response)=>{
       this.setData({
         elements:response.object
       })

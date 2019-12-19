@@ -39,7 +39,10 @@ Page({
   },
 
   onLoad: function (options) {
-    http.post("/food/random").then((response) => {
+    let data = {
+      userId: app.globalData.userId
+    }
+    http.post("/food/random",data).then((response) => {
       console.log(response)
       this.setData({
         dishesDetail: response.object[0]

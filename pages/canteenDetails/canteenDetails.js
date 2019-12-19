@@ -129,10 +129,10 @@ Page({
     ]
   },
   onLoad(options) {
-    wx.showLoading({
-      title: '加载中...',
-      mask: true
-    });
+    // wx.showLoading({
+    //   title: '加载中...',
+    //   mask: true
+    // });
     // let cId = options.cId;
     // 获取食堂列表
     http.post('/restaurant/allCanteen').then((response) => {
@@ -148,7 +148,10 @@ Page({
 
       for(let j=0;j<list.length;j++){
         let rid=list[j].id;
-        let data = {restaurantId: rid}
+        let data = {
+          restaurantId: rid,
+          userId: app.globalData.userId
+        }
         http.post("/food/all", data).then((response)=>{
           this.setData({
             elements:this.data.elements.concat(response.object)
