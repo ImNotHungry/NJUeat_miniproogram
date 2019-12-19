@@ -30,7 +30,7 @@
             <view>
               {{item.name}}
               <view class="action">
-                <text class="cuIcon-likefill {{item.isFavor?'text-red':'text-gray'}}" style="margin-left:20rpx" bindtap="changeFavor" data-isFavor="{{item.isFavor}}" data-itemID="{{item.id}}"></text>
+                <text class="cuIcon-likefill {{item.isFavor?'text-red':'text-gray'}}" style="margin-left:20rpx" bindtap="changeFavor" data-isFavor="{{item.isFavor}}" data-itemID="{{item.foodId}}"></text>
               </view>
             </view>
             <view class="text-gray text-sm flex dishintro ">
