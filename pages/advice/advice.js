@@ -1,11 +1,18 @@
 // pages/advice/advice.js
+
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    index: null,
+    imgList: [],
+    modalName: null,
+    textareaAValue: '',
   },
 
   /**
@@ -62,5 +69,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  addAdvice() {
+    wx.showToast({
+      title: '谢谢您的反馈',
+      icon: 'success',
+      duration: 2000
+    })
+    this.setData({
+      textareaAValue: ''
+    })
+    wx.navigateBack({
+      url: '../mine/mine'
+    })
   }
 })

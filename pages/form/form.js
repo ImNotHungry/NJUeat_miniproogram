@@ -60,7 +60,7 @@ Page({
       userId: app.globalData.userId,
       comment: this.data.textareaAValue
     }).then((response) => {
-      wx.navigateTo({
+      wx.navigateBack({
         url: '../discuss/discuss'
       })
     })

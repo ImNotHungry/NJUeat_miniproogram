@@ -5,12 +5,8 @@
 </cu-custom>
 
 <view class="cu-form-group margin-top">
-  <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入您的反馈意见"></textarea>
-</view>
-<view class="cu-form-group margin-top">
-		<view class="title">联系方式</view>
-		<input placeholder="请输入您的邮箱或手机号码"></input>
+  <textarea maxlength="-1" disabled="{{modalName!=null}}" value="{{textareaAValue}}" placeholder="请输入您的反馈意见"></textarea>
 </view>
 <view class="padding flex flex-direction">
-  <button class="cu-btn bg-green lg">发送</button>
+  <button class="cu-btn bg-green lg" bindtap="addAdvice">发送</button>
 </view>
