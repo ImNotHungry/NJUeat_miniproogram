@@ -18,13 +18,13 @@
     </view>
   </scroll-view>
   <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
-    <view class="padding-top padding-lr" wx:for="{{list}}" wx:key id="main-{{idx}}" wx:for-index="idx">
+    <view class="padding-top padding-lr" wx:for="{{list}}" wx:key="id" id="main-{{id}}" wx:for-index="id" wx:for-item="value">
       <view class='cu-bar solid-bottom bg-white'>
         <view class='action'>
-          <text class='cuIcon-title text-green'></text> {{item.name}} </view>
+          <text class='cuIcon-title text-green'></text> {{value.name}} </view>
       </view>
       <view class="cu-list menu-avatar">
-        <view class="cu-item" wx:for="{{elements}}" wx:key wx:if="{{item.restaurantId==idx}}">
+        <view class="cu-item" wx:for="{{elements}}" wx:key wx:if="{{item.restaurantId==value.id}}">
           <view class=" cu-avatar round lg " style="background-image:url({{item.pictureUrl}}); "></view>
           <view class="content ">
             <view>

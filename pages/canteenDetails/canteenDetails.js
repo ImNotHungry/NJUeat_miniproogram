@@ -138,7 +138,7 @@ Page({
     http.post('/restaurant/allCanteen').then((response) => {
       let list = [];
       for (let i = 0; i < response.object.length; i++) {
-        list[i] = { id: i, name: response.object[i].restaurantName }
+        list[i] = { id: response.object[i].restaurantId, name: response.object[i].restaurantName }
       }
       this.setData({
         list: list,
@@ -156,7 +156,9 @@ Page({
           this.setData({
             elements:this.data.elements.concat(response.object)
           })
+          console.log(this.data.elements)
         })
+        
       }
     });
 

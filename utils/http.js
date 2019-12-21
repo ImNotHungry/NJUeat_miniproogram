@@ -3,7 +3,8 @@ const app = getApp();
 const request = (url, options) => {
     return new Promise((resolve, reject) => {
         wx.request({
-            url: 'https://caizhaochen.top'+url,
+            // url: 'https://caizhaochen.top'+url,
+            url: 'http://localhost:8000' + url,
             method: options.method,
             data: options.data ,
             header: {
