@@ -50,7 +50,7 @@ Page({
           name: response.object[i].name,
           description: response.object[i].description,
           photo: response.object[i].pictureUrl,
-          location: response.object[i].restaurantId + "食堂" + response.object[i].window + "窗口",
+          location: response.object[i].restaurantName + response.object[i].window,
           price: response.object[i].price
         }
       }
