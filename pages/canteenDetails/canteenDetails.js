@@ -13,6 +13,7 @@ Page({
         foodId: id
       }
       http.post('/user/deleteCollection', data).then((response) => {
+        this.changeOneFoodElementClass(id)
       })
     }
     else {
@@ -22,10 +23,11 @@ Page({
         foodId: id
       }
       http.post('/user/addCollection', data).then((response) => {
+        this.changeOneFoodElementClass(id)
       })
       
     }
-    this.onLoad();
+    // this.onLoad();
   },
   data: {
     StatusBar: app.globalData.StatusBar,
@@ -73,8 +75,8 @@ Page({
           this.setData({
             elements:this.data.elements.concat(response.object)
           })
+          this.changeFoodElementsClass()
         })
-        
       }
     });
 
@@ -120,5 +122,36 @@ Page({
         return false
       }
     }
+  },
+  changeFoodElementsClass(){
+    let allFood = this.data.elements
+    for(let i=0;i<allFood.length;i++){
+      if(allFood[i].isFavor){
+        allFood[i].colorClass ="cuIcon-likefill text-red"
+      }else{
+        allFood[i].colorClass = "cuIcon-likefill text-gray"
+      }
+    }
+    this.setData({
+      elements:allFood
+    })
+  },
+  changeOneFoodElementClass(index) {
+    let allFood = this.data.elements
+    for (let i = 0; i < allFood.length; i++) {
+      if(allFood[i].foodId==index){
+        if (allFood[i].isFavor) {
+          allFood[i].isFavor = false
+          allFood[i].colorClass = "cuIcon-likefill text-gray"
+        } else {
+          allFood[i].isFavor = true
+          allFood[i].colorClass = "cuIcon-likefill text-red"
+        }
+      }
+    }
+    this.setData({
+      elements: allFood
+    })
   }
+
 })
