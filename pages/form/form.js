@@ -60,6 +60,10 @@ Page({
       userId: app.globalData.userId,
       comment: this.data.textareaAValue
     }).then((response) => {
+      var pages = getCurrentPages()
+      //对上一页进行刷新
+      console.log(pages[pages.length-2])
+      pages[pages.length - 2].onLoad()
       wx.navigateBack({
         url: '../discuss/discuss'
       })

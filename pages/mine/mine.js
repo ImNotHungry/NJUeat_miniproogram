@@ -7,7 +7,7 @@ Component({
     addGlobalClass: true,
   },
   data: {
-    userInfo: null,
+    userInfo: app.globalData.userInfo,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
